@@ -1,0 +1,221 @@
+25 апреля 2024 г., 02:12:10 MSK[scheduling-1] com.ibm.msg.client.jakarta.wmq.internal.WMQConnection
+Исключительная ситуация проигнорирована, поскольку обработчик исключительных ситуаций не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jakarta.jms.DetailedJMSException: JMSWMQ1107: Возникла ошибка соединения.
+Ошибка соединения IBM MQ JMS.
+Для определения причины ошибки обратитесь к связанной исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jakarta.jms.DetailedJMSException
+               Блокнот вкладок : com.ibm.msg.client.jakarta.wmq.common.internal.Reason.reasonToException(Reason.java:595)
+                               : com.ibm.msg.client.jakarta.wmq.common.internal.Reason.createException(Reason.java:215)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:217)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:156)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1859)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:233)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1462)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:674)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:1083)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:483)
+                               : com.ibm.mq.jakarta.jms.MQMessageConsumer.receive(MQMessageConsumer.java:212)
+                               : org.springframework.jms.support.destination.JmsDestinationAccessor.receiveFromConsumer(JmsDestinationAccessor.java:138)
+                               : org.springframework.jms.core.JmsTemplate.doReceive(JmsTemplate.java:814)
+                               : org.springframework.jms.core.JmsTemplate.doReceive(JmsTemplate.java:791)
+                               : org.springframework.jms.core.JmsTemplate.lambda$receiveSelected$9(JmsTemplate.java:775)
+                               : org.springframework.jms.core.JmsTemplate.execute(JmsTemplate.java:530)
+                               : org.springframework.jms.core.JmsTemplate.receiveSelected(JmsTemplate.java:773)
+                               : org.springframework.jms.core.JmsTemplate.receive(JmsTemplate.java:749)
+                               : ru.systems.demo.mq.Receiver.sendMessage(Receiver.java:40)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+                               : jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:568)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124)
+                               : io.micrometer.observation.Observation.observe(Observation.java:499)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124)
+                               : org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+                               : org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
+                               : java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+                               : java.util.concurrent.FutureTask.run(FutureTask.java:264)
+                               : java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+                               : java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+                               : java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+                               : java.lang.Thread.run(Thread.java:840)
+     Вызвано [1] --> Сообщение : com.ibm.mq.MQException: JMSCMQ0001: Не удалось выполнить вызов IBM MQ; код завершения '2' ('MQCC_FAILED'), причина '2009' ('MQRC_CONNECTION_BROKEN').
+                         Класс : class com.ibm.mq.MQException
+               Блокнот вкладок : com.ibm.msg.client.jakarta.wmq.common.internal.Reason.createException(Reason.java:203)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:217)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:156)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1859)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:233)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1462)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:674)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:1083)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:483)
+                               : com.ibm.mq.jakarta.jms.MQMessageConsumer.receive(MQMessageConsumer.java:212)
+                               : org.springframework.jms.support.destination.JmsDestinationAccessor.receiveFromConsumer(JmsDestinationAccessor.java:138)
+                               : org.springframework.jms.core.JmsTemplate.doReceive(JmsTemplate.java:814)
+                               : org.springframework.jms.core.JmsTemplate.doReceive(JmsTemplate.java:791)
+                               : org.springframework.jms.core.JmsTemplate.lambda$receiveSelected$9(JmsTemplate.java:775)
+                               : org.springframework.jms.core.JmsTemplate.execute(JmsTemplate.java:530)
+                               : org.springframework.jms.core.JmsTemplate.receiveSelected(JmsTemplate.java:773)
+                               : org.springframework.jms.core.JmsTemplate.receive(JmsTemplate.java:749)
+                               : ru.systems.demo.mq.Receiver.sendMessage(Receiver.java:40)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+                               : jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:568)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124)
+                               : io.micrometer.observation.Observation.observe(Observation.java:499)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124)
+                               : org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+                               : org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
+                               : java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+                               : java.util.concurrent.FutureTask.run(FutureTask.java:264)
+                               : java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+                               : java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+                               : java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+                               : java.lang.Thread.run(Thread.java:840)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+25 апреля 2024 г., 02:12:11 MSK[scheduling-1] com.ibm.msg.client.jakarta.wmq.internal.WMQConnection
+Исключительная ситуация проигнорирована, поскольку обработчик исключительных ситуаций не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jakarta.jms.DetailedJMSException: JMSWMQ1107: Возникла ошибка соединения.
+Ошибка соединения IBM MQ JMS.
+Для определения причины ошибки обратитесь к связанной исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jakarta.jms.DetailedJMSException
+               Блокнот вкладок : com.ibm.msg.client.jakarta.wmq.common.internal.Reason.reasonToException(Reason.java:595)
+                               : com.ibm.msg.client.jakarta.wmq.common.internal.Reason.createException(Reason.java:215)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQSession.disconnect(WMQSession.java:834)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQSession.close(WMQSession.java:788)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:632)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:355)
+                               : com.ibm.mq.jakarta.jms.MQSession.close(MQSession.java:280)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:109)
+                               : org.springframework.jms.core.JmsTemplate.execute(JmsTemplate.java:536)
+                               : org.springframework.jms.core.JmsTemplate.receiveSelected(JmsTemplate.java:773)
+                               : org.springframework.jms.core.JmsTemplate.receive(JmsTemplate.java:749)
+                               : ru.systems.demo.mq.Receiver.sendMessage(Receiver.java:40)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+                               : jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:568)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124)
+                               : io.micrometer.observation.Observation.observe(Observation.java:499)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124)
+                               : org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+                               : org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
+                               : java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+                               : java.util.concurrent.FutureTask.run(FutureTask.java:264)
+                               : java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+                               : java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+                               : java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+                               : java.lang.Thread.run(Thread.java:840)
+     Вызвано [1] --> Сообщение : com.ibm.mq.MQException: JMSCMQ0001: Не удалось выполнить вызов IBM MQ; код завершения '2' ('MQCC_FAILED'), причина '2009' ('MQRC_CONNECTION_BROKEN').
+                         Класс : class com.ibm.mq.MQException
+               Блокнот вкладок : com.ibm.msg.client.jakarta.wmq.common.internal.Reason.createException(Reason.java:203)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQSession.disconnect(WMQSession.java:834)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQSession.close(WMQSession.java:788)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:632)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:355)
+                               : com.ibm.mq.jakarta.jms.MQSession.close(MQSession.java:280)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:109)
+                               : org.springframework.jms.core.JmsTemplate.execute(JmsTemplate.java:536)
+                               : org.springframework.jms.core.JmsTemplate.receiveSelected(JmsTemplate.java:773)
+                               : org.springframework.jms.core.JmsTemplate.receive(JmsTemplate.java:749)
+                               : ru.systems.demo.mq.Receiver.sendMessage(Receiver.java:40)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+                               : jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:568)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124)
+                               : io.micrometer.observation.Observation.observe(Observation.java:499)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124)
+                               : org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+                               : org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
+                               : java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+                               : java.util.concurrent.FutureTask.run(FutureTask.java:264)
+                               : java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+                               : java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+                               : java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+                               : java.lang.Thread.run(Thread.java:840)
+     Вызвано [2] --> Сообщение : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009;AMQ9206: Ошибка при отправке данных на хост 'localhost/127.0.0.1:11414 (localhost)'. [1=com.ibm.mq.jmqi.JmqiException[CC=2;RC=2009],3=localhost/127.0.0.1:11414 (localhost),4=TCP,5=RemoteTCPConnection.send(byte [ ],int,int,int,int)]
+                         Класс : class com.ibm.mq.jmqi.JmqiException
+               Блокнот вкладок : com.ibm.mq.jmqi.remote.impl.RemoteTCPConnection.send(RemoteTCPConnection.java:1836)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.wrapSend(RemoteConnection.java:3108)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.sendTSH(RemoteConnection.java:2874)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.sendTSH(RemoteSession.java:796)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.sendTSH(RemoteSession.java:712)
+                               : com.ibm.mq.jmqi.remote.api.RemoteFAP.MQDISC(RemoteFAP.java:1678)
+                               : com.ibm.mq.jmqi.remote.api.RemoteFAP.MQDISC(RemoteFAP.java:1613)
+                               : com.ibm.mq.ese.jmqi.InterceptedJmqiImpl.MQDISC(InterceptedJmqiImpl.java:431)
+                               : com.ibm.mq.ese.jmqi.ESEJMQI.MQDISC(ESEJMQI.java:396)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQSession.disconnect(WMQSession.java:822)
+                               : com.ibm.msg.client.jakarta.wmq.internal.WMQSession.close(WMQSession.java:788)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:632)
+                               : com.ibm.msg.client.jakarta.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:355)
+                               : com.ibm.mq.jakarta.jms.MQSession.close(MQSession.java:280)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:109)
+                               : org.springframework.jms.core.JmsTemplate.execute(JmsTemplate.java:536)
+                               : org.springframework.jms.core.JmsTemplate.receiveSelected(JmsTemplate.java:773)
+                               : org.springframework.jms.core.JmsTemplate.receive(JmsTemplate.java:749)
+                               : ru.systems.demo.mq.Receiver.sendMessage(Receiver.java:40)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+                               : jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:568)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124)
+                               : io.micrometer.observation.Observation.observe(Observation.java:499)
+                               : org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124)
+                               : org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+                               : org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
+                               : java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+                               : java.util.concurrent.FutureTask.run(FutureTask.java:264)
+                               : java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+                               : java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+                               : java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+                               : java.lang.Thread.run(Thread.java:840)
+     Вызвано [3] --> Сообщение : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009
+                         Класс : class com.ibm.mq.jmqi.JmqiException
+               Блокнот вкладок : com.ibm.mq.jmqi.remote.impl.RemoteConnection.asyncConnectionBroken(RemoteConnection.java:3972)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.notifyReconnect(RemoteConnection.java:5011)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:524)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:319)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:99)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:343)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:312)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1240)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+26 апреля 2024 г., 01:25:36 MSK[restartedMain] MQConnectionFactory
+Значение для 'hostname' неверно: 'localhost(11414)'.
+
+Объяснение:
+Данное свойство значения находится за пределами диапазона допустимых значений.
+
+Действие:
+Проверьте предоставленное значение
+--------------------------------------------------------------------
+26 апреля 2024 г., 01:26:01 MSK[restartedMain] MQConnectionFactory
+Значение для 'hostname' неверно: 'localhost(11414)'.
+
+Объяснение:
+Данное свойство значения находится за пределами диапазона допустимых значений.
+
+Действие:
+Проверьте предоставленное значение
+--------------------------------------------------------------------

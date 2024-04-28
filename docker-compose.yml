@@ -1,0 +1,59 @@
+version: "3.7"
+services:
+  api_service:
+    build: q-systems
+    restart: always
+    ports:
+      - "8082:8082"
+    networks:
+      - springapimysql-net
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/basics?allowPublicKeyRetrieval=true
+    depends_on:
+      - mysqldb
+    volumes:
+      - .m2:/root/.m2
+  mq-sender:
+    build: mq/spring-jms-ibm-mq
+    depends_on:
+      - queue
+    ports:
+      - "8081:8081"
+    volumes:
+      - .m2:/root/.m2
+    networks:
+      - springapimysql-net
+  queue:
+    image: 'ibmcom/mq'
+    ports:
+      - "11414:1414"
+      - "9443:9443"
+    hostname: localhost
+    environment:
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM1
+      - MQ_CHANNEL=DEV.ADMIN.SVRCONN
+      - MQ_APP_USER=admin
+      - MQ_APP_PASSWORD=passw0rd
+      - MQ_TOPIC_NAME=hellotopic
+    container_name: mqserver
+    stdin_open: true
+    tty: true
+    restart: always
+
+    networks:
+      - springapimysql-net
+  mysqldb:
+    image: "mysql:8.0"
+    restart: always
+    ports:
+      - "3307:3307"
+    networks:
+      - springapimysql-net
+    environment:
+      MYSQL_DATABASE: basics
+      MYSQL_USER: amila_one
+      MYSQL_PASSWORD: Amila_pw
+      MYSQL_ROOT_PASSWORD: Amila_Rpw
+networks:
+  springapimysql-net:

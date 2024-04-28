@@ -1,0 +1,14 @@
+# Welcome to Q-SYSTEMS DATABASE-CONNECTOR
+Q-systems database-connector allows you to receive messages from IBM MQ and save this requests in MySQL database.
+
+# Welcome to Q-SYSTEMS DATABASE-CONNECTOR
+
+## Building
+### Requirements
+* JDK 17
+* Maven 3.3 or higher
+### Building
+Schema Workbench uses typical Maven commands for building
+```
+mvn install
+```
